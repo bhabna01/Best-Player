@@ -7,13 +7,16 @@ function getinputvalueByID(inputID, playID) {
     const element = document.getElementById(playID);
     let numb = element.childNodes.length;
     if (numb > 5) {
-        alert("You Can't Add more than");
+        alert("You Can't Add more than 5 players");
         disableButton(false);
     }
     else {
-        const li = document.createElement('li');
-        li.innerText = player;
-        placelist.appendChild(li);
+        {
+            let li = document.createElement('li');
+            li.innerText = player;
+            placelist.appendChild(li);
+        }
+
 
     }
 
@@ -53,11 +56,6 @@ document.getElementById("btn-selection6").addEventListener("click", function () 
 })
 function disableButton(btnID) {
     const buttonName = document.getElementById(btnID)
-
     buttonName.disabled = true;
     buttonName.style.backgroundColor = "red";
 }
-// const someli = document.querySelectorAll("#player-list li")
-// for (const li of someli) {
-//     console.log(li.innerText);
-// }

@@ -1,7 +1,9 @@
 document.getElementById("player-calculate").addEventListener("click", function () {
+    const element = document.getElementById("player-list");
+    let numb = element.childNodes.length - 1;
     const perPlayerBudget = document.getElementById("per-budget");
     const value = parseInt(perPlayerBudget.value);
-    const calculation = value * 5;
+    const calculation = value * numb;
     const expense = document.getElementById("total-amount");
     expense.innerText = calculation;
     perPlayerBudget.value = '';

@@ -3,10 +3,15 @@ document.getElementById("player-calculate").addEventListener("click", function (
     let numb = element.childNodes.length - 1;
     const perPlayerBudget = document.getElementById("per-budget");
     const value = parseInt(perPlayerBudget.value);
+    perPlayerBudget.value = '';
+    if (isNaN(value)) {
+        alert('Enter a valid value');
+        return;
+    }
     const calculation = value * numb;
     const expense = document.getElementById("total-amount");
     expense.innerText = calculation;
-    perPlayerBudget.value = '';
+
 
 })
 document.getElementById("calculate-total").addEventListener("click", function () {
@@ -16,10 +21,22 @@ document.getElementById("calculate-total").addEventListener("click", function ()
     const mangervalue = parseInt(manager.value);
     const coach = document.getElementById("coach-calculate");
     const coachValue = parseInt(coach.value);
+    manager.value = '';
+    coach.value = '';
+    isvalid(mangervalue);
+    isvalid(coachValue);
+
     const calculateTotal = calculation + mangervalue + coachValue;
     const totalexpense = document.getElementById("total-expense");
     totalexpense.innerText = calculateTotal;
-    expense.value = '';
-    manager.value = '';
-    coach.value = '';
+    // expense.value = '';
+
+
 })
+function isvalid(value) {
+
+    if (isNaN(value)) {
+        alert('Enter a valid value');
+        return;
+    }
+}
